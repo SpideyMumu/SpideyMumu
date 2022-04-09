@@ -1,0 +1,226 @@
+Maximum Disc Coverage
+
+The Task
+
+Given a set of points, go through every pair of points, and for each
+circle that passes through them, count how many points are covered by each
+circle. Finally, return the maximum count.
+
+You may assume that there are always at least two points with a positive
+distance less than 2 between them.
+
+This task is divided into five levels.
+
+Level 1
+
+Represent a Point
+
+The first thing we can do is to group x and y coordinates into a single
+data structure or class.
+
+Design a class Point to represent a point object with each pair of x- and
+y- coordinates.
+
+ class Point {
+     // include the properties of a Point
+
+     // complete the constructor
+     Point(double x, double y) {
+     }
+
+     // include a toString method
+ }
+
+Define an overriding toString method to output each point. In addition,
+the output of each double value, say d, is to be formatted with
+String.format("%.3f", d);
+
+ jshell> /open Point.java
+
+ jshell> new Point(0.0, 1.0)
+ $.. ==> point (0.000, 1.000)
+
+ jshell> /exit
+
+Level 2
+
+Find the mid-point and angle of line pq
+
+Find the mid-point between two consecutive points p and q. In addition,
+find the angle (in radians) of line pq using the atan or atan2 Math
+function (refer to the Java API specifications).
+
+Complete the midPoint and angleTo methods and include them in the Point
+class. You may define other helper methods to further abstract away
+lower-level functionalities.
+
+ class Point {
+     ...
+
+     Point midPoint(Point q) {
+         ...
+     }
+
+     double angleTo(Point q) {
+         ...
+     }
+ }
+
+Inconsistencies between your output and the actual output involving -0.000
+and 0.000 can be ignored.
+
+ jshell> /open Point.java
+
+ jshell> new Point(0.0, 0.0).midPoint(new Point(1.0, 1.0))
+ $.. ==> point (0.500, 0.500)
+
+ jshell> new Point(0.0, 0.0).angleTo(new Point(1.0, 1.0))
+ $.. ==> 0.7853981633974483
+
+ jshell> new Point(0, 0).angleTo(new Point(-1, -1))
+ $.. ==> -2.356194490192345
+
+ jshell> Point p = new Point(1, 1)
+ p ==> point (1.000, 1.000)
+
+ jshell> p.midPoint(new Point(2,2))
+ $.. ==> point (1.500, 1.500)
+
+ jshell> p
+ p ==> point (1.000, 1.000)
+
+ jshell> /exit
+
+Level 3
+
+Moving the point
+
+Now we need to allow points to be "moved", so that we can move point m to
+c. However, in the spirit of immutability, the original point is not
+moved. Instead, a new point is returned, which reflects the new position
+of the original point if it has been moved by angle θ and distance d.
+
+Hint: if a point, say m, is at (x, y), then moving m at an angle θ and
+distance d, would result in the new position having the coordinates (x + d
+cosθ, y + d sinθ)
+
+ class Point {
+     ...
+
+     Point moveTo(double theta, double d) {
+         ...
+         return new Point...;
+     }
+ }
+
+ jshell> /open Point.java
+
+ jshell> Point p = new Point(0.0, 0.0)
+ p ==> point (0.000, 0.000)
+
+ jshell> p.moveTo(Math.PI / 2, 1.0)
+ $.. ==> point (0.000, 1.000)
+
+ jshell> p
+ p ==> point (0.000, 0.000)
+
+ jshell> /exit
+
+Level 4
+
+Creating the Circle
+
+Define the Circle class to allow for the creation of circle objects with a
+given centre and radius. You may assume that all circles created are
+valid.
+
+ jshell> /open Point.java
+
+ jshell> /open Circle.java
+
+ jshell> new Circle(new Point(0.0, 0.0), 1.0)
+ $.. ==> circle of radius 1.0 centered at point (0.000, 0.000)
+
+ jshell> new Circle(new Point(1, 1), 2)
+ $.. ==> circle of radius 2.0 centered at point (1.000, 1.000)
+
+We are now ready to construct unit circles whose perimeter passes through
+two given points.
+
+By using the mid-point and angle of line pq, move the mid-point to the
+centre of the circle of radius r whose perimeter coincides with points p
+and q. You will need to work out the respective angle and distance values.
+
+Create a jshell script maxDiscCoverage.jsh and define a createUnitCircle
+method that takes in two points p and q and returns the unit circle
+created.
+
+ Circle createUnitCircle(Point p, Point q) {
+     ...
+     return new Circle...;
+ }
+
+Notice that if the distance between points p and q is larger than 2 units,
+then there is no unit circle whose perimeter coincides with the points. In
+this level, you may assume that the two points will form a unit circle.
+
+ jshell> /open maxDiscCoverage.jsh
+
+ jshell> createUnitCircle(new Point(0, 0), new Point(1, 0))
+ $.. ==> circle of radius 1.0 centered at point (0.500, 0.866)
+
+ jshell> createUnitCircle(new Point(0, 0), new Point(2, 0))
+ $.. ==> circle of radius 1.0 centered at point (1.000, 0.000)
+
+ jshell> /exit
+
+Level 5
+
+Maximum Disc Coverage
+
+You are now ready to find the maximum unit disc coverage.
+
+Within maxDiscCoverage.jsh, further define a method findMaxDiscCoverage
+that takes in an array of Point objects and finds the maximum coverage
+among them. You may make use of other helper methods.
+
+ Circle createUnitCircle(Point p, Point q) {
+     ...
+ }
+
+ int findMaxDiscCoverage(List<Point> points) {
+     int maxDiscCoverage = 0;
+     int numOfPoints = points.size();
+
+     for (int i = 0; i < numOfPoints - 1; i++) {
+         for (int j = i + 1; j < numOfPoints; j++) {
+             // find coverage with points.get(i) and points.get(j)
+             ...
+         }
+     }
+     return maxDiscCoverage;
+ }
+
+Once again, keep in mind that if the distance between points p and q is
+larger than 2 units, then there is no unit circle whose perimeter
+coincides with the points.
+
+ jshell> /open Point.java
+
+ jshell> /open Circle.java
+
+ jshell> /open maxDiscCoverage.jsh
+
+ jshell> List<Point> points = List.of(new Point(0, 0), new Point(1, 0))
+ points ==> [point (0.000, 0.000), point (1.000, 0.000)]
+
+ jshell> findMaxDiscCoverage(points)
+ $.. ==> 2
+
+ jshell> points = List.of(new Point(0, -1), new Point(1, 0), 
+    ...> new Point(0, 1), new Point(-1, 0))
+ points ==> [point (0.000, -1.000), point (1.000, 0.000), poi ... 0), point (-1.000, 0.000)]
+ jshell> findMaxDiscCoverage(points)
+ $.. ==> 4
+
+ jshell> /exit
