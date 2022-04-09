@@ -1,8 +1,8 @@
 - 👋 Hi, I’m @SpideyMumu
-- 👀 I’m interested in any Android OS related projects
 - 🌱 I’m currently learning basic java and python @ NUS!
 - 💞️ I’m looking to collaborate on any simple projects to further improve my coding skills
-- 📫 You can reach me through telegram @spideymumu
+- Feel free to look at my all my past labs for CS2030 and ask me on telegram (@SpideyMumu) if you have any queries
+
 
 <!---
 SpideyMumu/SpideyMumu is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
