@@ -1,5 +1,6 @@
 - 👋 Hi, I’m @SpideyMumu
 - 🌱 I’m currently learning java and React Native @ NUS!
+- I am currently doing Orbital (Level: Apollo)
 - 💞️ I’m looking to collaborate on any simple projects to further improve my coding skills
 - Feel free to look at my all my past labs for CS2030 and ask me on telegram (@SpideyMumu) if you have any queries
 
