@@ -1,8 +1,8 @@
 - 👋 Hi, I’m @SpideyMumu
-- 🌱 I’m currently learning java and React Native @ NUS!
-- I am currently doing Orbital (Level: Apollo)
+- I am currently participating in CODE_EXP a hackathon organised by DSTA
 - 💞️ I’m looking to collaborate on any simple projects to further improve my coding skills
 - Feel free to ask me on telegram (@SpideyMumu) if you have any queries
+- Visit my portfolio website [✨here!✨](https://spideymumu.github.io/)
 
 
 <!---
