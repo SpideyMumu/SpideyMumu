@@ -1,8 +1,4 @@
-- 👋 Hi, I’m @SpideyMumu
-- I am currently participating in CODE_EXP a hackathon organised by DSTA
-- 💞️ I’m looking to collaborate on any simple projects to further improve my coding skills
-- Feel free to ask me on telegram (@SpideyMumu) if you have any queries
-- Visit my portfolio website [✨here!✨](https://spideymumu.github.io/)
+- 👋 Hi, I’m @SpideyMumu. Visit my portfolio website [✨here!✨](https://spideymumu.github.io/)
 
 
 <!---
